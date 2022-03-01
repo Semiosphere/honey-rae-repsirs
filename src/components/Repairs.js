@@ -3,18 +3,35 @@
 //corresponds with the url
 
 import React from "react";
+import { Route, Redirect } from "react-router-dom";
 import { ApplicationViews } from "./ApplicationViews";
 import { NavBar } from "./nav/NavBar";
-import "./repairs.css"
+import { Login } from "./auth/Login";
+import { Register } from "./auth/Register";
+import "./repairs.css";
 
+export const Repairs = () => (
+  <>
+    <Route
+      render={() => {
+        if (localStorage.getItem("honey_customer")) {
+          return (
+            <>
+              <NavBar />
+              <ApplicationViews />
+            </>
+          );
+        } else {
+          return <Redirect to="/login" />;
+        }
+      }}
+    />
 
-export const Repairs = () => {
-    return (
-        <>
-            <NavBar />
-            <h1>Honey Rae's Repair Shop</h1>
-            
-            <ApplicationViews />
-        </>
-    )
-}
+    <Route path="/login">
+      <Login />
+    </Route>
+    <Route path="/register">
+      <Register />
+    </Route>
+  </>
+);

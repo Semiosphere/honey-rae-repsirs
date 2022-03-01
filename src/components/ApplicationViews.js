@@ -8,6 +8,7 @@ import { Route } from "react-router-dom";
 import { CustomerList } from "./customers/CustomerList";
 import { EmployeeList } from "./employees/EmployeeList";
 import { TicketList } from "./serviceTickets/TicketList";
+import { TicketForm } from "./serviceTickets/TicketForm";
 
 export const ApplicationViews = () => {
     return (
@@ -23,6 +24,11 @@ export const ApplicationViews = () => {
             <Route exact path="/tickets">
             <TicketList />  
             </Route>
+
+            <Route path="/tickets/create">
+            <TicketForm />  
+            </Route>
         </>
+        //use 'exact' to specify a route
     )
 }
