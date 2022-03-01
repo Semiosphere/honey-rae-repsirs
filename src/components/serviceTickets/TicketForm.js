@@ -10,7 +10,8 @@ export const TicketForm = () => {
 
     const history = useHistory()
 
-    const submitTicket = () => {
+    const submitTicket = (evt) => {
+        evt.preventDefault()
         const newTicket = {
             description: ticket.description,
             emergency: ticket.emergency,
@@ -33,9 +34,9 @@ export const TicketForm = () => {
         })
     }
 
-    const saveTicket = (event) => {
-        event.preventDefault()
-    }
+    // const saveTicket = (event) => {
+    //     event.preventDefault()
+    // }
 
     return (
         <form className="ticketForm">
@@ -70,7 +71,7 @@ export const TicketForm = () => {
                         } />
                 </div>
             </fieldset>
-            <button className="btn btn-primary" onClick={saveTicket}>
+            <button onClick={submitTicket} className="btn btn-primary">
                 Submit Ticket
             </button>
         </form>

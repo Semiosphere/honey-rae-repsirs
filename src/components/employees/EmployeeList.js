@@ -16,16 +16,15 @@ export const EmployeeList = () => {
     )
 
     useEffect(() => {
-        /*
-            1. Use .map() to get the specialty of each employee
-            2. Then update a state variable to be a comma-separated string
-                (e.g. "iPhone, Printers, ...")
-        */const justSpecialties = employees.map(emp => emp.specialty)
+        const justSpecialties = employees.map(emp => emp.specialty)
         setSpecial(justSpecialties.join(", "))
     }, [employees])
 
     return (
         <>
+        <div>
+            <button onClick={() => history.push("/emplyees/create")}>Hire Employee</button>
+        </div>
             <div>
                 Specialties: { specialties }
             </div>
